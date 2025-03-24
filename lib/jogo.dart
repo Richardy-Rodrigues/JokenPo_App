@@ -25,8 +25,10 @@ class _JogoState extends State<Jogo> {
             child: Text(
               "Escolha do app",
               textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-          )
+          ),
+          Image(image: AssetImage('images/padrao.png')),
         ],
       ),
     );
