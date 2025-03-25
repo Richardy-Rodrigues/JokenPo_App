@@ -12,6 +12,8 @@ class Jogo extends StatefulWidget {
 class _JogoState extends State<Jogo> {
   var _imageApp = AssetImage("images/padrao.png");
   var _resultadoFinal = "Boa sorte!!!";
+  var _pontoApp = 0;
+  var _pontoUsuario = 0;
 
   void _opcaoSelecionada(String escolhaUsuario) {
     var opcoes = ["pedra", "papel", "tesoura"];
@@ -43,12 +45,14 @@ class _JogoState extends State<Jogo> {
         (escolhaUsuario == "papel" && escolhaApp == "pedra")) {
       setState(() {
         _resultadoFinal = "Parabéns! Você ganhou";
+        _pontoUsuario += 1;
       });
     } else if ((escolhaApp == "pedra" && escolhaUsuario == "tesoura") ||
         (escolhaApp == "tesoura" && escolhaUsuario == "papel") ||
         (escolhaApp == "papel" && escolhaUsuario == "pedra")) {
       setState(() {
         _resultadoFinal = "Tente novamente! Você perdeu";
+        _pontoApp += 1;
       });
     } else {
       setState(() {
@@ -119,6 +123,35 @@ class _JogoState extends State<Jogo> {
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 32, bottom: 16),
+            child: Text(
+              "Pontuação",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Text("Usuário: " + _pontoUsuario.toString(),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color:
+                        (_pontoUsuario > _pontoApp ? Colors.green : Colors.red),
+                  )),
+              Text("Robô: " + _pontoApp.toString(),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color:
+                        (_pontoApp > _pontoUsuario ? Colors.green : Colors.red),
+                  ))
+            ],
           )
         ],
       ),
