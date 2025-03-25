@@ -11,6 +11,7 @@ class Jogo extends StatefulWidget {
 
 class _JogoState extends State<Jogo> {
   var _imageApp = AssetImage("images/padrao.png");
+  var _resultadoFinal = "Boa sorte!!!";
 
   void _opcaoSelecionada(String escolhaUsuario) {
     var opcoes = ["pedra", "papel", "tesoura"];
@@ -35,6 +36,24 @@ class _JogoState extends State<Jogo> {
           _imageApp = AssetImage("images/tesoura.png");
         });
         break;
+    }
+
+    if ((escolhaUsuario == "pedra" && escolhaApp == "tesoura") ||
+        (escolhaUsuario == "tesoura" && escolhaApp == "papel") ||
+        (escolhaUsuario == "papel" && escolhaApp == "pedra")) {
+      setState(() {
+        _resultadoFinal = "Parabéns! Você ganhou";
+      });
+    } else if ((escolhaApp == "pedra" && escolhaUsuario == "tesoura") ||
+        (escolhaApp == "tesoura" && escolhaUsuario == "papel") ||
+        (escolhaApp == "papel" && escolhaUsuario == "pedra")) {
+      setState(() {
+        _resultadoFinal = "Tente novamente! Você perdeu";
+      });
+    } else {
+      setState(() {
+        _resultadoFinal = "Empate! Tente novamente";
+      });
     }
   }
 
@@ -92,6 +111,14 @@ class _JogoState extends State<Jogo> {
                 ),
               )
             ],
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 32, bottom: 16),
+            child: Text(
+              _resultadoFinal,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
           )
         ],
       ),
