@@ -96,28 +96,47 @@ class _JogoState extends State<Jogo> {
             children: <Widget>[
               GestureDetector(
                   onTap: () => _opcaoSelecionada("pedra"),
-                  child: Image(
-                    image: AssetImage('images/pedra.png'),
-                    height: 100,
+                  child: Column(
+                    children: [
+                      Image(
+                        image: AssetImage('images/pedra.png'),
+                        height: 100,
+                      ),
+                      Text("Pedra",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold))
+                    ],
                   )),
               GestureDetector(
-                onTap: () => _opcaoSelecionada("papel"),
-                child: Image(
-                  image: AssetImage('images/papel.png'),
-                  height: 100,
-                ),
-              ),
+                  onTap: () => _opcaoSelecionada("papel"),
+                  child: Column(
+                    children: [
+                      Image(
+                        image: AssetImage('images/papel.png'),
+                        height: 100,
+                      ),
+                      Text("Papel",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold))
+                    ],
+                  )),
               GestureDetector(
-                onTap: () => _opcaoSelecionada("tesoura"),
-                child: Image(
-                  image: AssetImage('images/tesoura.png'),
-                  height: 100,
-                ),
-              )
+                  onTap: () => _opcaoSelecionada("tesoura"),
+                  child: Column(
+                    children: [
+                      Image(
+                        image: AssetImage('images/tesoura.png'),
+                        height: 100,
+                      ),
+                      Text("Tesoura",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold))
+                    ],
+                  )),
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(top: 32, bottom: 16),
+            padding: EdgeInsets.only(top: 20, bottom: 16),
             child: Text(
               _resultadoFinal,
               textAlign: TextAlign.center,
@@ -125,7 +144,7 @@ class _JogoState extends State<Jogo> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 32, bottom: 16),
+            padding: EdgeInsets.only(top: 20, bottom: 16),
             child: Text(
               "Pontuação",
               textAlign: TextAlign.center,
