@@ -1,19 +1,10 @@
-# JokenPo
 
-A new Flutter project created with FlutLab - https://flutlab.io
+# App JokenPo
 
-## Getting Started
+Jogo do JokenPo, diversão, desafio e sorte! O jogo consiste em você escolher Pedra, Papel ou Tesoura e o Robô irá escolher uma opção aleatória para disputa. Será contado uma pontuação a cada partida. Eai está preparado?
 
-A few resources to get you started if this is your first Flutter project:
 
-- https://flutter.dev/docs/get-started/codelab
-- https://flutter.dev/docs/cookbook
 
-For help getting started with Flutter, view our
-https://flutter.dev/docs, which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Utilização do Jogo
 
-## Getting Started: FlutLab - Flutter Online IDE
-
-- How to use FlutLab? Please, view our https://flutlab.io/docs
-- Join the discussion and conversation on https://flutlab.io/residents
+[![Assista ao vídeo](https://img.youtube.com/vi/5BCX008bPoU/0.jpg)](https://www.youtube.com/watch?v=5BCX008bPoU)
