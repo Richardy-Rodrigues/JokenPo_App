@@ -51,13 +51,20 @@ class _JogoState extends State<Jogo> {
         (escolhaApp == "tesoura" && escolhaUsuario == "papel") ||
         (escolhaApp == "papel" && escolhaUsuario == "pedra")) {
       setState(() {
-        _resultadoFinal = "Tente novamente! Você perdeu";
+        _resultadoFinal = "Você perdeu! Tente novamente";
         _pontoApp += 1;
       });
     } else {
       setState(() {
         _resultadoFinal = "Empate! Tente novamente";
       });
+    }
+  }
+
+  void _zeraPontos(String zerar) {
+    if (zerar == "sim") {
+      _pontoApp = 0;
+      _pontoUsuario = 0;
     }
   }
 
@@ -75,16 +82,25 @@ class _JogoState extends State<Jogo> {
           Padding(
             padding: EdgeInsets.only(top: 32, bottom: 16),
             child: Text(
-              "Escolha do app",
+              "Clique 2x para zerar a pontuação",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
           // Imagem padrão de escolha do app
-          Image(image: _imageApp),
+          // Image(image: _imageApp),
+          GestureDetector(
+              onDoubleTap: () => _zeraPontos("sim"),
+              child: Column(
+                children: [
+                  Image(
+                    image: _imageApp,
+                  ),
+                ],
+              )),
 
           Padding(
-              padding: EdgeInsets.only(top: 32, bottom: 16),
+              padding: EdgeInsets.only(top: 25, bottom: 16),
               child: Text(
                 "Escolha uma opção abaixo",
                 textAlign: TextAlign.center,
@@ -136,7 +152,7 @@ class _JogoState extends State<Jogo> {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(top: 20, bottom: 16),
+            padding: EdgeInsets.only(top: 15, bottom: 16),
             child: Text(
               _resultadoFinal,
               textAlign: TextAlign.center,
@@ -144,7 +160,7 @@ class _JogoState extends State<Jogo> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 20, bottom: 16),
+            padding: EdgeInsets.only(top: 15, bottom: 16),
             child: Text(
               "Pontuação",
               textAlign: TextAlign.center,
@@ -169,7 +185,7 @@ class _JogoState extends State<Jogo> {
                     fontWeight: FontWeight.bold,
                     color:
                         (_pontoApp > _pontoUsuario ? Colors.green : Colors.red),
-                  ))
+                  )),
             ],
           )
         ],
